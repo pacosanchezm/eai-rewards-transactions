@@ -96,7 +96,7 @@ const ModuloSimple  = () => {
 
           <Flex sx={{ width: "100%" }}>
               <Row>
-              <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Recibimos tu historia, en breve nos pondremos en contacto contigo y te estaremos invitando a nuestras actividades para emprendedores. ¡Gracias por ser parte de la comunidad empresando!"}</Text>
+              <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Recibimos tus datos, en breve nos pondremos en contacto contigo y te estaremos invitando a nuestras actividades para emprendedores. ¡Gracias por ser parte de la comunidad empresando!"}</Text>
               </Row>
           </Flex>
 
@@ -124,12 +124,44 @@ const ModuloSimple  = () => {
 
 
     <Container fluid>
+
+
+    <Image sx={{ height: 222,  }} src="https://smxblogs.com/empresando/wp-content/empresando/red/unete1.jpg"/>
+
+
       <Row>
-        <Text sx={Estilo.msecc2}>{"Cuéntanos tu historia"}</Text>
+        <Text sx={Estilo.msecc2}>{"Regístrate y sé parte de la red empresando"}</Text>
       </Row>
       <Row>
-        <Text sx={Estilo.p2s}>{"Comparte tu emprendimiento y únete a la comunidad de emprendedores más grande de México, además tu historia podría ser seleccionada para ser compartida con nuestra comunidad."}</Text>
+        <Text sx={Estilo.p2s}>{"Recibe por whatsapp historias de emprendimiento, invitaciones a conferencias, eventos y más."}</Text>
       </Row>
+    
+
+
+
+      <Container fluid>
+
+
+        <Row>
+          <Col xs={3}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his1.jpg"/> </Col>
+          <Col xs={3}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his2.jpg"/> </Col>
+          <Col xs={3}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his3.jpg"/> </Col>
+          <Col xs={3}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/conf1a.jpg"/> </Col>
+
+        
+
+        </Row>
+
+      </Container>
+
+
+
+
+      <Row>
+        <Text sx={Estilo.p2s}>{"¡Sigamos haciendo juntos un México de emprendedores!"}</Text>
+      </Row>
+    
+    
     </Container>
 
 
@@ -166,44 +198,6 @@ const ModuloSimple  = () => {
           <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Email", setDetalle)}/> </Col>
         </Row>
 
-      </Container>
-
-
-      <Box sx={{ height: 13,  }} />
-
-      <Row>
-        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Datos del emprendimiento"}</Text>
-      </Row>
-
-
-
-      <Container fluid 
-        style={{ width: "100%", bg: "white", borderRadius: "10px", borderStyle: "solid", borderWidth:1, borderColor: "#9999", paddingTop: "10px"}}
-      >
-
-        <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Nombre</Text> </Col>
-          <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Titulo", setDetalle)}/> </Col>
-        </Row>
-
-        <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Sitio Web</Text> </Col>
-          <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Web", setDetalle)}/> </Col>
-        </Row>
-
-        <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Categoría</Text> </Col>
-          <Col xs={9}> 
-            <Dropbox
-              name="Categoria"
-              isSearchable={false}
-              styles={DropboxCss.filtro2}
-              value={{value: Detalle.Categoria, label: Detalle.Categoria}}
-              options={props.useContext.Categorias[0]}
-              onChange={async e => { setDetalle({ ...Detalle, "Categoria": e.value }) }} 
-            />
-          </Col>
-        </Row>
 
 
         <Row style={{marginBottom: "10px"}}>
@@ -221,28 +215,24 @@ const ModuloSimple  = () => {
         </Row>
 
 
-        <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Empleados</Text> </Col>
-          <Col xs={9}> 
-            <Dropbox
-              name="Categoria"
-              isSearchable={false}
-              styles={DropboxCss.filtro2}
-              value={{value: Detalle.Empleados, label: Detalle.Empleados}}
-              options={props.useContext.Empleados[0]}
-              onChange={async e => { setDetalle({ ...Detalle, "Empleados": e.value }) }} 
-            />
-          </Col>
-        </Row>
+
+
+
+
+
+
 
 
       </Container>
 
 
+
+
+
       <Box sx={{ height: 13,  }} />
 
       <Row>
-        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"¿Cómo te enteraste de Empresando?"}</Text>
+        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Etapa de tu emprendimiento"}</Text>
       </Row>
 
 
@@ -256,8 +246,8 @@ const ModuloSimple  = () => {
             {...useChangeBooleanArray(Detalle, "Referencia1", setDetalle)}
           >
             <Row>
-              <Col xs={3}> <Text sx={Estilo.d2s} >Página Web</Text> </Col>
-              <Col xs={2}> <Checkbox checked={Detalle.Referencia1}/> </Col>
+                <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia1}/> </Col>
+               <Col xs={6}> <Text sx={Estilo.d2s} >Estoy desarrollando la idea de negocio</Text> </Col>
             </Row>
           </Button>
         </Row>
@@ -268,8 +258,8 @@ const ModuloSimple  = () => {
             {...useChangeBooleanArray(Detalle, "Referencia2", setDetalle)}
           >
             <Row>
-              <Col xs={3}> <Text sx={Estilo.d2s}>Facebook</Text> </Col>
-              <Col xs={2}> <Checkbox checked={Detalle.Referencia2}/> </Col>
+            <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia2}/> </Col>
+              <Col xs={6}> <Text sx={Estilo.d2s}>Tengo un prototipo de productos y/o servicios</Text> </Col>
             </Row>
           </Button>
         </Row>
@@ -280,8 +270,8 @@ const ModuloSimple  = () => {
             {...useChangeBooleanArray(Detalle, "Referencia3", setDetalle)}
           >
             <Row>
-              <Col xs={3}> <Text sx={Estilo.d2s}>Instagram</Text> </Col>
-              <Col xs={2}> <Checkbox checked={Detalle.Referencia3}/> </Col>
+            <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia3}/> </Col>
+              <Col xs={6}> <Text sx={Estilo.d2s}>En operación (ya vendo productos y/o servicios)</Text> </Col>
             </Row>
           </Button>
         </Row>
@@ -292,8 +282,8 @@ const ModuloSimple  = () => {
             {...useChangeBooleanArray(Detalle, "Referencia4", setDetalle)}
           >
             <Row>
-              <Col xs={3}> <Text sx={Estilo.d2s}>Referencia personal</Text> </Col>
-              <Col xs={2}> <Checkbox checked={Detalle.Referencia4}/> </Col>
+            <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia4}/> </Col>
+              <Col xs={6}> <Text sx={Estilo.d2s}>No tengo una idea concreta</Text> </Col>
             </Row>
           </Button>
         </Row>
@@ -309,7 +299,7 @@ const ModuloSimple  = () => {
 
       <Box sx={{ height: 13,  }} />
       <Row>
-        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Cuéntanos acerca de tu emprendimiento"}</Text>
+        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Cuéntanos sobre ti"}</Text>
       </Row>
 
 
