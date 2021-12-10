@@ -32,6 +32,7 @@ import Menu from "./smx-menu/menu"
 import SideBar from "./smx-menu/sidebar"
 import FormData from "./smx-form-data/appi"
 
+import Menux from "./smx-menux/index"
 
 
 
@@ -560,6 +561,15 @@ const Body = props => {
           </Helmet>
 
         
+
+          <Menux title="Click Me!"/>
+
+
+
+
+
+
+
 
           <FormData
             Theme={Theme}

@@ -366,7 +366,7 @@ const ModuloSimple  = () => {
               }}
             >
               <Text sx={Estilo.mbtn1}>
-                Enviar mi historia
+                Registrarme
                 {LoadingSecc ? <Spinner size={17} ml={0} /> : <div/>}
               </Text>
 
