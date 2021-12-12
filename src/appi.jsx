@@ -33,6 +33,7 @@ import SideBar from "./smx-menu/sidebar"
 import FormData from "./smx-form-data/appi"
 
 import Menux from "./smx-menux/index"
+import Menuxa from "./smx-menua1/index"
 
 
 
@@ -562,8 +563,9 @@ const Body = props => {
 
         
 
-          <Menux title="Click Me!"/>
+          <Menux title="Click Mae!"/>
 
+          <Menuxa title="Click Mae!"/>
 
 
 
