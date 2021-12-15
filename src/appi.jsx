@@ -24,6 +24,13 @@ import { Container, Col, Row } from 'react-bootstrap';
 import { useMediaQuery } from 'react-responsive'
 import {Helmet} from "react-helmet"
 
+import Menuxa from "smx-menu-s"
+// import Menuxa from "./smx-menua1/index"
+
+
+
+
+
 // ---- modulos
 
 import Head from "./head"
@@ -33,7 +40,6 @@ import SideBar from "./smx-menu/sidebar"
 import FormData from "./smx-form-data/appi"
 
 import Menux from "./smx-menux/index"
-import Menuxa from "./smx-menua1/index"
 
 
 
@@ -563,9 +569,11 @@ const Body = props => {
 
         
 
-          <Menux title="Click Mae!"/>
+          {/* <Menux title="Click Mae!"/> */}
 
-          <Menuxa title="Click Mae!"/>
+          <Menuxa title="Click Mas!"
+          useContext={useContext(StateContext)}
+          />
 
 
 
