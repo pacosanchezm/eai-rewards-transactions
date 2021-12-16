@@ -66,4 +66,4 @@ exports.filtro2 = {
 }
 
 
-export default filtro1
+// export default filtro1

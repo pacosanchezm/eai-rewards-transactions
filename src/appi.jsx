@@ -11,7 +11,7 @@ import { ThemeProvider, jsx, Styled, useThemeUI, MenuButton } from "theme-ui"
 import { Grid, Flex, Box, Button, Text, Image, Spinner, Input } from "@theme-ui/components"
 
 import Theme from "./theme"
-import "@babel/polyfill"
+// import "@babel/polyfill"
 import "./styles.css"
 
 // import Container from 'react-bootstrap/Container'

@@ -8,8 +8,8 @@ import { ThemeProvider, jsx, Styled, useThemeUI } from "theme-ui"
 import { Flex, Box, Button, Text, Textarea, Image, Spinner, Grid, Input, Checkbox, Link } from "@theme-ui/components"
 import { Container, Col, Row } from 'react-bootstrap'
 
-import Dropbox from "react-select"
-import DropboxCss from "./select"
+ import Dropbox from "react-select"
+// import {filtro2} from "./select"
 
 
 
@@ -17,6 +17,47 @@ let App
 
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
+
+
+const DropboxFiltro1= {
+  container: (base, state) => ({
+    ...base,
+    border: state.isFocused ? null : null
+  }),
+  control: (base, state) => ({
+    ...base,
+    background: "lightgrey",
+    fontFamily: "Arial",
+    fontSize: 12
+  }),
+  menu: base => ({
+    ...base,
+    fontFamily: "Arial"
+  }),
+
+  singleValue: base => ({
+    ...base,
+    color: "slategrey"
+  }),
+
+  valueContainer: (base, state) => ({
+    ...base,
+    background: "lightgrey",
+    color: "red"
+  }),
+  multiValue: (base, state) => ({
+    ...base,
+    background: "lightYellow",
+    maxWidth: "100px"
+  })
+}
+
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+
+
+
+
 
 const Body = props => {
   const Estilo = useThemeUI().theme.styles
@@ -206,7 +247,7 @@ const ModuloSimple  = () => {
             <Dropbox
               name="Categoria"
               isSearchable={false}
-              styles={DropboxCss.filtro2}
+              styles={DropboxFiltro1}
               value={{value: Detalle.Estado, label: Detalle.Estado}}
               options={props.useContext.Estados[0]}
               onChange={async e => { setDetalle({ ...Detalle, "Estado": e.value }) }} 
