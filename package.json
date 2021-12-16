@@ -4,6 +4,7 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "homepage": ".",
   "dependencies": {
     "@babel/polyfill": "7.12.1",
     "@reach/router": "1.3.4",
