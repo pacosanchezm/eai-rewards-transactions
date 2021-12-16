@@ -31,6 +31,7 @@ import Menuxa from "smx-menu-s"
 
 
 
+
 // ---- modulos
 
 import Head from "./head"
@@ -571,9 +572,9 @@ const Body = props => {
 
           {/* <Menux title="Click Mae!"/> */}
 
-          <Menuxa title="Click Mas!"
+          {/* <Menuxa title="Click Mas!"
           useContext={useContext(StateContext)}
-          />
+          /> */}
 
 
 
@@ -607,10 +608,18 @@ const Body = props => {
       return (
         <Flex sx={{width: "100%" }}>
             <Box sx={{ width: "100%" }}>
-              <Menu 
+              {/* <Menu 
               useContext={useContext(StateContext)}
               useAcciones = {useacciones}
-              />
+              /> */}
+
+
+            <Menuxa title="Click Mas!"
+              useContext={useContext(StateContext)}
+            />
+
+
+
             </Box>
         </Flex>
       )
