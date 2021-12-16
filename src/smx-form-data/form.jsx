@@ -137,11 +137,27 @@ const ModuloSimple  = () => {
 
           <Flex sx={{ width: "100%" }}>
               <Row>
-              <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Recibimos tus datos, en breve nos pondremos en contacto contigo y te estaremos invitando a nuestras actividades para emprendedores. ¡Gracias por ser parte de la comunidad empresando!"}</Text>
+                <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Recibimos tus datos, en breve recibirás nuestras historias e información relevante del mundo emprendedor. ¡Gracias por ser parte de la red empresando!"}</Text>
               </Row>
           </Flex>
 
           <Box css={{ height: 21 }} />
+
+          <Row>
+            <Text sx={Estilo.msecc2}>{"Red Empresando"}</Text>
+            <Text sx={Estilo.msecc1}>{"Sembrando inspiración para emprender"}</Text>
+
+          </Row>
+
+
+
+
+
+
+
+
+
+
 
 
          </Box>
@@ -171,12 +187,19 @@ const ModuloSimple  = () => {
 
 
       <Row>
-        <Text sx={Estilo.msecc2}>{"Regístrate y sé parte de la red empresando"}</Text>
+        <Text sx={Estilo.msecc2}>{"Regístrate y sé parte de la red Empresando"}</Text>
       </Row>
       <Row>
-        <Text sx={Estilo.p2s}>{"Recibe por whatsapp historias de emprendimiento, invitaciones a conferencias, eventos y más."}</Text>
+      <Col xs={2}> </Col>
+
+        <Col xs={8}> <Text sx={Estilo.p2s} style={{color: "gray"}}>{"Recibe por whatsapp historias de emprendimiento, invitaciones a conferencias, eventos y más."}</Text></Col>
+
+                <Col xs={2}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/whatslogo1.png"/> </Col>
+                <Col xs={2}> </Col>
+
       </Row>
     
+      <Box css={{ height: 21 }} />
 
 
 
@@ -184,10 +207,9 @@ const ModuloSimple  = () => {
 
 
         <Row>
-          <Col xs={3}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his1.jpg"/> </Col>
-          <Col xs={3}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his2.jpg"/> </Col>
-          <Col xs={3}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his3.jpg"/> </Col>
-          <Col xs={3}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/conf1a.jpg"/> </Col>
+          <Col xs={4}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his1.jpg"/> </Col>
+          <Col xs={4}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/info1.jpg"/> </Col>
+          <Col xs={4}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his2.jpg"/> </Col>
 
         
 
@@ -195,11 +217,12 @@ const ModuloSimple  = () => {
 
       </Container>
 
+      <Box css={{ height: 21 }} />
 
 
 
       <Row>
-        <Text sx={Estilo.p2s}>{"¡Sigamos haciendo juntos un México de emprendedores!"}</Text>
+        <Text sx={Estilo.msecc2}>{"¡Sigamos haciendo juntos un México de emprendedores!"}</Text>
       </Row>
     
     
@@ -230,7 +253,7 @@ const ModuloSimple  = () => {
         </Row>
 
         <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Teléfono</Text> </Col>
+          <Col xs={3}> <Text sx={Estilo.label1} >Teléfono</Text> <Text sx={Estilo.d2s} >(Whatsapp)</Text>  </Col>
           <Col xs={4}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Telefono", setDetalle)}/> </Col>
         </Row>
 
@@ -288,7 +311,7 @@ const ModuloSimple  = () => {
           >
             <Row>
                 <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia1}/> </Col>
-               <Col xs={6}> <Text sx={Estilo.d2s} >Estoy desarrollando la idea de negocio</Text> </Col>
+               <Col xs={8} style={{textAlign: "left"}}> <Text sx={Estilo.d2s} >Estoy desarrollando la idea de negocio</Text> </Col>
             </Row>
           </Button>
         </Row>
@@ -300,7 +323,7 @@ const ModuloSimple  = () => {
           >
             <Row>
             <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia2}/> </Col>
-              <Col xs={6}> <Text sx={Estilo.d2s}>Tengo un prototipo de productos y/o servicios</Text> </Col>
+              <Col xs={8} style={{textAlign: "left"}}> <Text sx={Estilo.d2s}>Tengo un prototipo de productos y/o servicios</Text> </Col>
             </Row>
           </Button>
         </Row>
@@ -312,7 +335,7 @@ const ModuloSimple  = () => {
           >
             <Row>
             <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia3}/> </Col>
-              <Col xs={6}> <Text sx={Estilo.d2s}>En operación (ya vendo productos y/o servicios)</Text> </Col>
+              <Col xs={8} style={{textAlign: "left"}} > <Text sx={Estilo.d2s}>En operación (ya vendo productos y/o servicios)</Text> </Col>
             </Row>
           </Button>
         </Row>
@@ -324,15 +347,15 @@ const ModuloSimple  = () => {
           >
             <Row>
             <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia4}/> </Col>
-              <Col xs={6}> <Text sx={Estilo.d2s}>No tengo una idea concreta</Text> </Col>
+              <Col xs={8} style={{textAlign: "left"}}> <Text sx={Estilo.d2s}>No tengo una idea concreta</Text> </Col>
             </Row>
           </Button>
         </Row>
 
         <Row style={{marginBottom: "10px"}}>
           <Row>
-            <Col xs={3}> <Text sx={Estilo.d2s}>Otro</Text> </Col>
-            <Col xs={5}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Referencia5", setDetalle)}/> </Col>
+            <Col xs={3} style={{textAlign: "left", paddingLeft: "50px"}}> <Text sx={Estilo.d2s}>Otro</Text> </Col>
+            <Col xs={8} style={{textAlign: "left"}}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Referencia5", setDetalle)}/> </Col>
           </Row>
         </Row>
 
