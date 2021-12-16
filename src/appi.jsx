@@ -11,7 +11,7 @@ import { ThemeProvider, jsx, Styled, useThemeUI, MenuButton } from "theme-ui"
 import { Grid, Flex, Box, Button, Text, Image, Spinner, Input } from "@theme-ui/components"
 
 import Theme from "./theme"
- import "@babel/polyfill"
+// import "@babel/polyfill"
 import "./styles.css"
 
 // import Container from 'react-bootstrap/Container'
@@ -561,25 +561,12 @@ const Body = props => {
 
           <Helmet>
             <meta charSet="utf-8" />
-            <title>Compártenos tu historia - empresando</title>
+            <title>Únete a la Red Empresando</title>
             {/* <link rel="canonical" href="http://mysite.com/example" /> */}
-            <meta property="og:title" content="Compártenos tu historia - empresando" />
-            <meta property="og:description" content="¿Te gustaría compartir tu historia de emprendimiento con nuestra comunidad?" />
+            <meta property="og:title" content="Únete a la Red Empresando" />
+            <meta property="og:description" content="¿Te gustaría recibir lo mas destacado del mundo emprendedor?" />
             <meta property="og:image" content="https://smxblogs.com/empresando/wp-content/empresando/logoemp.png" />
           </Helmet>
-
-        
-
-          {/* <Menux title="Click Mae!"/> */}
-
-          {/* <Menuxa title="Click Mas!"
-          useContext={useContext(StateContext)}
-          /> */}
-
-
-
-
-
 
 
           <FormData
