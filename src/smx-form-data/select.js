@@ -64,3 +64,6 @@ exports.filtro2 = {
     maxWidth: "100px"
   })
 }
+
+
+export default filtro1
