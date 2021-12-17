@@ -296,7 +296,9 @@ const ModuloSimple  = () => {
       <Box sx={{ height: 13,  }} />
 
       <Row>
-        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Etapa de tu emprendimiento"}</Text>
+        <Col xs={9} style={{textAlign: "left"}}>
+          <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Etapa de tu emprendimiento"}</Text> <Text sx={Estilo.d2s} >(opcional)</Text>
+        </Col>
       </Row>
 
 
@@ -362,9 +364,16 @@ const ModuloSimple  = () => {
       </Container>
 
       <Box sx={{ height: 13,  }} />
-      <Row>
+      {/* <Row>
         <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Cuéntanos sobre ti"}</Text>
-      </Row>
+      </Row> */}
+
+      <Col xs={9} style={{textAlign: "left"}}>
+        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Cuéntanos sobre ti"}</Text> <Text sx={Estilo.d2s} >(opcional)</Text>
+      </Col>
+
+
+
 
 
       <Container fluid 
@@ -389,16 +398,19 @@ const ModuloSimple  = () => {
       <Container fluid>
         <Row style={{marginBottom: "10px"}}>
         
-          <Col xs={4}> 
+          <Col xs={3} > 
             <Button
                 sx={{width: "100%", bg: "transparent"}}
                 {...useChangeBoolean(Aceptado, setAceptado)}
             >
              <Checkbox checked={Aceptado} />
+
+
+             
             </Button>
           </Col>
 
-          <Col xs={8}> 
+          <Col xs={8} style={{textAlign: "left"}}> 
             <Text pt={"3px"} sx={Estilo.d2s}>Acepto el </Text>
             <Link sx={Estilo.h3}  href='/avisoprivacidad' target='_blank'>
               {" Aviso de Privacidad"}
