@@ -192,7 +192,7 @@ const ModuloSimple  = () => {
       <Row>
       <Col xs={2}> </Col>
 
-        <Col xs={8}> <Text sx={Estilo.p2s} style={{color: "gray"}}>{"Recibe por whatsapp historias de emprendimiento, invitaciones a conferencias, eventos y más."}</Text></Col>
+        <Col xs={8}> <Text sx={Estilo.p2s} style={{color: "gray"}}>{"Recibe por whatsapp historias de emprendimiento e información relevante del mundo emprendedor."}</Text></Col>
 
                 <Col xs={2}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/whatslogo1.png"/> </Col>
                 <Col xs={2}> </Col>
