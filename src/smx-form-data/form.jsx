@@ -254,7 +254,7 @@ const ModuloSimple  = () => {
 
         <Row style={{marginBottom: "10px"}}>
           <Col xs={3}> <Text sx={Estilo.label1} >Teléfono</Text> <Text sx={Estilo.d2s} >(Whatsapp)</Text>  </Col>
-          <Col xs={4}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Telefono", setDetalle)}/> </Col>
+          <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Telefono", setDetalle)}/> </Col>
         </Row>
 
         <Row style={{marginBottom: "10px"}}>
@@ -388,8 +388,8 @@ const ModuloSimple  = () => {
 
       <Container fluid>
         <Row style={{marginBottom: "10px"}}>
-        <Col xs={3}/> 
-          <Col xs={1}> 
+        
+          <Col xs={4}> 
             <Button
                 sx={{width: "100%", bg: "transparent"}}
                 {...useChangeBoolean(Aceptado, setAceptado)}
@@ -398,7 +398,7 @@ const ModuloSimple  = () => {
             </Button>
           </Col>
 
-          <Col xs={5}> 
+          <Col xs={8}> 
             <Text pt={"3px"} sx={Estilo.d2s}>Acepto el </Text>
             <Link sx={Estilo.h3}  href='/avisoprivacidad' target='_blank'>
               {" Aviso de Privacidad"}
