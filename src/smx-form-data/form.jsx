@@ -187,7 +187,7 @@ const ModuloSimple  = () => {
 
 
       <Row>
-        <Text sx={Estilo.msecc2}>{"Regístrate y sé parte de la red Empresando"}</Text>
+        <Text sx={Estilo.msecc2}>{"Regístrate y sé parte de la red Empresando."}</Text>
       </Row>
       <Row>
       <Col xs={2}> </Col>
