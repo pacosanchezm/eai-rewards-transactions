@@ -318,17 +318,7 @@ const ModuloSimple  = () => {
           </Button>
         </Row>
 
-        <Row style={{marginBottom: "10px"}}>
-          <Button
-            sx={{width: "100%", bg: "transparent"}}
-            {...useChangeBooleanArray(Detalle, "Referencia2", setDetalle)}
-          >
-            <Row>
-            <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia2}/> </Col>
-              <Col xs={8} style={{textAlign: "left"}}> <Text sx={Estilo.d2s}>Tengo un prototipo de productos y/o servicios</Text> </Col>
-            </Row>
-          </Button>
-        </Row>
+
 
         <Row style={{marginBottom: "10px"}}>
           <Button
@@ -364,9 +354,80 @@ const ModuloSimple  = () => {
       </Container>
 
       <Box sx={{ height: 13,  }} />
-      {/* <Row>
-        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Cuéntanos sobre ti"}</Text>
-      </Row> */}
+
+
+
+
+      <Row>
+        <Col xs={9} style={{textAlign: "left"}}>
+          <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Datos del emprendimiento"}</Text> <Text sx={Estilo.d2s} >(opcional)</Text>
+        </Col>
+
+      </Row>
+
+
+
+      <Container fluid 
+        style={{ width: "100%", bg: "white", borderRadius: "10px", borderStyle: "solid", borderWidth:1, borderColor: "#9999", paddingTop: "10px"}}
+      >
+
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Nombre</Text> </Col>
+          <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Titulo", setDetalle)}/> </Col>
+        </Row>
+
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Sitio Web / Redes</Text> </Col>
+          <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Web", setDetalle)}/> </Col>
+        </Row>
+
+
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Empleados</Text> </Col>
+          <Col xs={9}> 
+            <Dropbox
+              name="Categoria"
+              isSearchable={false}
+              styles={DropboxFiltro1}
+              value={{value: Detalle.Empleados, label: Detalle.Empleados}}
+              options={props.useContext.Empleados[0]}
+              onChange={async e => { setDetalle({ ...Detalle, "Empleados": e.value }) }} 
+            />
+          </Col>
+        </Row>
+
+
+      </Container>
+
+
+
+
+
+      <Box sx={{ height: 13,  }} />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <Col xs={9} style={{textAlign: "left"}}>
         <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Cuéntanos sobre ti"}</Text> <Text sx={Estilo.d2s} >(opcional)</Text>

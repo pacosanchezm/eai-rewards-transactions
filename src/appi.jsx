@@ -36,11 +36,11 @@ import Menuxa from "smx-menu-s"
 
 import Head from "./head"
 import usedata from "./usedata"
-import Menu from "./smx-menu/menu"
+// import Menu from "./smx-menu/menu"
 import SideBar from "./smx-menu/sidebar"
 import FormData from "./smx-form-data/appi"
 
-import Menux from "./smx-menux/index"
+// import Menux from "./smx-menux/index"
 
 
 
