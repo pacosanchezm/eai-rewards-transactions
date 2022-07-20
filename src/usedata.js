@@ -118,7 +118,7 @@ let usedata = function(StateContextM) {
                   Nombre: String(e.Nombre),
                   ApellidoPat: String(e.Apellido),
                   Email: String(e.Email.replace(/\s+/g, '')),
-                  Origen: "Red",
+                  Origen: "RedW",
 
                 }
               }
