@@ -61,18 +61,18 @@ const Body = props => {
 try {
 
   return (
-    <Grid bg="#152f6a" sx={{justifyContent: 'center', width: "100%"}} >
+    <Grid bg="#0D111C" sx={{justifyContent: 'center', width: "100%"}} >
 
-      <Flex bg="#152f6a" sx={{width: "100%" }}>
+      <Flex bg="#0D111C" sx={{width: "100%" }}>
 
-        <Box >
+        <Box sx={{ height: "92px"}} >
 
         <Link sx={Estilo.menu1}
           // to={"/"}
-          href={"https://www.empresando.com"}
+          href={"https://www.nobis.mx"}
 
         >
-          <Image  src={Images.Logo1[0].src} sx={{ height: "89", width: "123px" }}/>
+          <Image  src={Images.Logo1[0].src} sx={{ height: "100%"}}/>
 
           </Link>
 
@@ -83,7 +83,7 @@ try {
         <Box sx={{ width: "100px" }}/>
 
 
-        <Flex sx={{ height: "34px", width: "100%" }}>
+        {/* <Flex sx={{ height: "34px", width: "100%" }}>
 
         <Box sx={{ width: "21px", height: "21px" }}>
           <Image src={Images.Icon1[0].src} />
@@ -98,7 +98,7 @@ try {
                 </Box>
               </Flex>
           }
-        </Flex>
+        </Flex> */}
 
       </Flex>
 

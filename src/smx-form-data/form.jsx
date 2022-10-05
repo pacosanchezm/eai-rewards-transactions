@@ -137,15 +137,15 @@ const ModuloSimple  = () => {
 
           <Flex sx={{ width: "100%" }}>
               <Row>
-                <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Recibimos tus datos, en breve recibirás nuestras historias e información relevante del mundo emprendedor. ¡Gracias por ser parte de la red empresando!"}</Text>
+                <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Recibimos tus datos, en breve nos comunicaremos contigo. ¡Gracias por contactarnos!"}</Text>
               </Row>
           </Flex>
 
           <Box css={{ height: 21 }} />
 
           <Row>
-            <Text sx={Estilo.msecc2}>{"Red Empresando"}</Text>
-            <Text sx={Estilo.msecc1}>{"Sembrando inspiración para emprender"}</Text>
+            <Text sx={Estilo.msecc2}>{"Nobis"}</Text>
+            <Text sx={Estilo.msecc1}>{"Juntos vamos a lograr tus objetivos"}</Text>
 
           </Row>
 
@@ -183,22 +183,22 @@ const ModuloSimple  = () => {
     <Container fluid>
 
 
-    <Image sx={{ height: 222,  }} src="https://smxblogs.com/empresando/wp-content/empresando/red/unete1.jpg"/>
+    <Image sx={{ height: 222,  }} src="https://nobis.mx/wp-content/uploads/2022/03/home-page-imagenes-nuevas-edicioncvsdjda-1-1536x864.jpg"/>
 
 
-      <Row>
-        <Text sx={Estilo.msecc2}>{"Regístrate y sé parte de la red Empresando."}</Text>
-      </Row>
+
       <Row>
       <Col xs={2}> </Col>
 
-        <Col xs={8}> <Text sx={Estilo.p2s} style={{color: "gray"}}>{"Recibe por whatsapp historias de emprendimiento e información relevante del mundo emprendedor."}</Text></Col>
+        <Col xs={8}> <Text sx={Estilo.p2s} style={{color: "gray"}}>{"¿Te gustaría recibir sin costo y sin ningún compromiso tu sesión de consultoría con unos de nuestros expertos fiscalistas?"}</Text></Col>
 
-                <Col xs={2}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/whatslogo1.png"/> </Col>
-                <Col xs={2}> </Col>
+                {/* <Col xs={2}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/whatslogo1.png"/> </Col>
+                <Col xs={2}> </Col> */}
 
       </Row>
-    
+          <Row>
+        <Text sx={Estilo.msecc2}>{"Regístrate y conoce cómo podemos ayudarte"}</Text>
+      </Row>
       <Box css={{ height: 21 }} />
 
 
@@ -207,9 +207,9 @@ const ModuloSimple  = () => {
 
 
         <Row>
-          <Col xs={4}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his1.jpg"/> </Col>
+          {/* <Col xs={4}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his1.jpg"/> </Col>
           <Col xs={4}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/info1.jpg"/> </Col>
-          <Col xs={4}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his2.jpg"/> </Col>
+          <Col xs={4}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his2.jpg"/> </Col> */}
 
         
 
@@ -222,7 +222,7 @@ const ModuloSimple  = () => {
 
 
       <Row>
-        <Text sx={Estilo.msecc2}>{"¡Sigamos haciendo juntos un México de emprendedores!"}</Text>
+        <Text sx={Estilo.msecc2}>{"¡Hagamos equipo para lograr mejores resultados!"}</Text>
       </Row>
     
     
@@ -243,14 +243,14 @@ const ModuloSimple  = () => {
         style={{ width: "100%", bg: "white", borderRadius: "10px", borderStyle: "solid", borderWidth:1, borderColor: "#9999", paddingTop: "10px"}}
       >
         <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Nombre</Text> </Col>
+          <Col xs={3}> <Text sx={Estilo.label1} >Nombre completo</Text> </Col>
           <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Nombre", setDetalle)}/> </Col>
         </Row>
 
-        <Row style={{marginBottom: "10px"}}>
+        {/* <Row style={{marginBottom: "10px"}}>
           <Col xs={3}> <Text sx={Estilo.label1} >Apellidos</Text> </Col>
           <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Apellido", setDetalle)}/> </Col>
-        </Row>
+        </Row> */}
 
         <Row style={{marginBottom: "10px"}}>
           <Col xs={3}> <Text sx={Estilo.label1} >Teléfono</Text> <Text sx={Estilo.d2s} >(Whatsapp)</Text>  </Col>
@@ -291,7 +291,7 @@ const ModuloSimple  = () => {
 
 
 
-
+{/* 
 
       <Box sx={{ height: 13,  }} />
 
@@ -351,7 +351,7 @@ const ModuloSimple  = () => {
           </Row>
         </Row>
 
-      </Container>
+      </Container> */}
 
       <Box sx={{ height: 13,  }} />
 
@@ -360,7 +360,7 @@ const ModuloSimple  = () => {
 
       <Row>
         <Col xs={9} style={{textAlign: "left"}}>
-          <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Datos del emprendimiento"}</Text> <Text sx={Estilo.d2s} >(opcional)</Text>
+          <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Datos de tu empresa"}</Text> <Text sx={Estilo.d2s} >(opcional)</Text>
         </Col>
 
       </Row>
@@ -440,6 +440,15 @@ const ModuloSimple  = () => {
       <Container fluid 
         style={{ width: "100%", bg: "white", borderRadius: "10px", borderStyle: "solid", borderWidth:1, borderColor: "#9999", paddingTop: "10px"}}
       >
+
+<Col xs={9} style={{textAlign: "left"}}>
+
+<Text sx={{...Estilo.d2s, textAlign: "left"}} >(si tienes alguna pregunta para el experto la puedes escribir aquí)</Text>
+</Col>
+
+
+
+
         <Row style={{marginBottom: "10px"}}>
 
           <Col xs={12}> 
@@ -473,7 +482,7 @@ const ModuloSimple  = () => {
 
           <Col xs={8} style={{textAlign: "left"}}> 
             <Text pt={"3px"} sx={Estilo.d2s}>Acepto el </Text>
-            <Link sx={Estilo.h3}  href='/avisoprivacidad' target='_blank'>
+            <Link sx={Estilo.h3}  href='https://nobis.mx/aviso-de-privacidad' target='_blank'>
               {" Aviso de Privacidad"}
             </Link>
           </Col>

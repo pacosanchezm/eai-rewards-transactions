@@ -24,9 +24,10 @@ import { Container, Col, Row } from 'react-bootstrap';
 import { useMediaQuery } from 'react-responsive'
 import {Helmet} from "react-helmet"
 
-import Menuxa from "smx-menu-s"
+// import Menuxa from "smx-menu-s"
 // import Menuxa from "./smx-menua1/index"
 
+import Menuxa from "smx-menu-s"
 
 
 
@@ -53,7 +54,7 @@ let server = "https://www.empresando.com"
 
 
 let MiDetalle = {
-  Empresa: 4,
+  Empresa: 9,
   Id: ["0"],
   Codigo: [""],
   Fecha: [""],
@@ -226,7 +227,7 @@ const useStateUniv = () => {
     },
 
     Images: {
-      Logo1: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/logoemp.png"}))),
+      Logo1: useState(useContext(createContext({src: "https://nobis.mx/wp-content/uploads/2022/04/Juntos-para-crecer-nobis-06-1024x458.png"}))),
       Logo2: useState(useContext(createContext({src: "https://smxai.net/sf/sflogo2.jpg"}))),
       Flechad: useState(useContext(createContext({src: "https://smxai.net/sf/cs1/arrowd1.png"}))),
       Flechau: useState(useContext(createContext({src: "https://smxai.net/sf/cs1/arrowu1.png"}))),
@@ -561,11 +562,11 @@ const Body = props => {
 
           <Helmet>
             <meta charSet="utf-8" />
-            <title>Únete a la Red Empresando</title>
+            <title>Descubre Nobi</title>
             {/* <link rel="canonical" href="http://mysite.com/example" /> */}
-            <meta property="og:title" content="Únete a la Red Empresando" />
-            <meta property="og:description" content="¿Te gustaría recibir lo mas destacado del mundo emprendedor?" />
-            <meta property="og:image" content="https://smxblogs.com/empresando/wp-content/empresando/logoemp.png" />
+            <meta property="og:title" content="Conoce Nobi y descubre cómo podemos ayudarte" />
+            <meta property="og:description" content="¿Te gustaría recibir la mejor asesoría?" />
+            <meta property="og:image" content="https://nobis.mx/wp-content/uploads/2022/04/Juntos-para-crecer-nobis-06-1024x458.png" />
           </Helmet>
 
 
@@ -601,9 +602,9 @@ const Body = props => {
               /> */}
 
 
-            <Menuxa title="Click Mas!"
+            {/* <Menuxa title="Click Mas!"
               useContext={useContext(StateContext)}
-            />
+            /> */}
 
 
 
@@ -643,7 +644,7 @@ const Body = props => {
           <Flex>
             <Box sx={{ width: "100%" }}>
               <Text sx={Estilo.h2}>
-                2021 empresando.com
+                2022 nobis.mx
               </Text>
             </Box>
           </Flex>
