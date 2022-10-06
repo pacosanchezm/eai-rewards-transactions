@@ -102,7 +102,7 @@ const EnableBoton = function(props) {
 
   // if(LoadingSecc) {return false}
 
-  if(Detalle.Nombre && Detalle.Apellido && Detalle.Telefono && Detalle.Email){
+  if(Detalle.Nombre && Detalle.Telefono && Detalle.Email){
     if(Detalle.Email.lastIndexOf('@')>0){
       if(Detalle.Email.lastIndexOf('.')>0){
           if(Aceptado){
