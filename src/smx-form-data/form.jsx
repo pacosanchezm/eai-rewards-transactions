@@ -54,6 +54,8 @@ const DropboxFiltro1= {
 
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
 
 
 
@@ -74,7 +76,7 @@ const Body = props => {
 
   const {useChangeArray, useChangeBooleanArray, useChangeBoolean} = props.useAcciones
 
-
+  let AAbonar = ((Detalle.Nivel / 100) * Detalle.Importe)
 
 // ----------------------------------
 
@@ -137,28 +139,17 @@ const ModuloSimple  = () => {
 
           <Flex sx={{ width: "100%" }}>
               <Row>
-                <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Recibimos tus datos, en breve nos comunicaremos contigo. ¡Gracias por contactarnos!"}</Text>
+                <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"La operación se realizó con éxito"}</Text>
               </Row>
           </Flex>
 
           <Box css={{ height: 21 }} />
 
           <Row>
-            <Text sx={Estilo.msecc2}>{"Nobis"}</Text>
-            <Text sx={Estilo.msecc1}>{"Juntos vamos a lograr tus objetivos"}</Text>
+            <Text sx={Estilo.msecc2}>{"Enlace Gourmet"}</Text>
+            <Text sx={Estilo.msecc1}>{""}</Text>
 
           </Row>
-
-
-
-
-
-
-
-
-
-
-
 
          </Box>
        </Flex>
@@ -183,47 +174,27 @@ const ModuloSimple  = () => {
     <Container fluid>
 
 
-    <Image sx={{ height: 222,  }} src="https://nobis.mx/wp-content/uploads/2022/03/home-page-imagenes-nuevas-edicioncvsdjda-1-1536x864.jpg"/>
+    {/* <Image sx={{ height: 222,  }} src={Images.Logo1}/> */}
 
+    <Box sx={{ height: 13,  }} />
 
 
       <Row>
       <Col xs={2}> </Col>
-
-        <Col xs={8}> <Text sx={Estilo.p2s} style={{color: "gray"}}>{"¿Te gustaría recibir sin costo y sin ningún compromiso tu sesión de consultoría con unos de nuestros expertos fiscalistas?"}</Text></Col>
-
-                {/* <Col xs={2}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/whatslogo1.png"/> </Col>
-                <Col xs={2}> </Col> */}
-
+        <Col xs={8}> <Text sx={Estilo.p2s} style={{color: "gray"}}>{"Abono de puntos por visita"}</Text></Col>
       </Row>
-          <Row>
+
+
+      {/* <Row>
         <Text sx={Estilo.msecc2}>{"Regístrate y conoce cómo podemos ayudarte"}</Text>
       </Row>
       <Box css={{ height: 21 }} />
 
 
-
-      <Container fluid>
-
-
-        <Row>
-          {/* <Col xs={4}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his1.jpg"/> </Col>
-          <Col xs={4}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/info1.jpg"/> </Col>
-          <Col xs={4}><Image src="https://smxblogs.com/empresando/wp-content/empresando/red/his2.jpg"/> </Col> */}
-
-        
-
-        </Row>
-
-      </Container>
-
       <Box css={{ height: 21 }} />
-
-
-
       <Row>
         <Text sx={Estilo.msecc2}>{"¡Hagamos equipo para lograr mejores resultados!"}</Text>
-      </Row>
+      </Row> */}
     
     
     </Container>
@@ -235,7 +206,7 @@ const ModuloSimple  = () => {
       <Box sx={{ height: 13,  }} />
 
       <Row>
-        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Tus datos de contacto"}</Text>
+        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Datos de la Tarjeta EnlaceGourmet"}</Text>
       </Row>
 
 
@@ -243,8 +214,8 @@ const ModuloSimple  = () => {
         style={{ width: "100%", bg: "white", borderRadius: "10px", borderStyle: "solid", borderWidth:1, borderColor: "#9999", paddingTop: "10px"}}
       >
         <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Nombre completo</Text> </Col>
-          <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Nombre", setDetalle)}/> </Col>
+          <Col xs={3}> <Text sx={Estilo.label1} >Tarjeta</Text> </Col>
+          <Col xs={3}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Enlace", setDetalle)}/> </Col>
         </Row>
 
         {/* <Row style={{marginBottom: "10px"}}>
@@ -253,41 +224,49 @@ const ModuloSimple  = () => {
         </Row> */}
 
         <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Teléfono</Text> <Text sx={Estilo.d2s} >(Whatsapp)</Text>  </Col>
-          <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Telefono", setDetalle)}/> </Col>
-        </Row>
-
-        <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Email</Text> </Col>
-          <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Email", setDetalle)}/> </Col>
+          <Col xs={3}> <Text sx={Estilo.label1} >Código</Text> <Text sx={Estilo.d2s} >(CVC)</Text>  </Col>
+          <Col xs={2}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Codigo", setDetalle)}/> </Col>
         </Row>
 
 
-
-        <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Estado</Text> </Col>
-          <Col xs={9}> 
-            <Dropbox
-              name="Categoria"
-              isSearchable={false}
-              styles={DropboxFiltro1}
-              value={{value: Detalle.Estado, label: Detalle.Estado}}
-              options={props.useContext.Estados[0]}
-              onChange={async e => { setDetalle({ ...Detalle, "Estado": e.value }) }} 
-            />
-          </Col>
-        </Row>
+        <Box css={{ height: 21 }} />
 
 
+        <Container fluid >
+          <Row style={{marginBottom: "10px"}}>
+          <Col xs={2}/> 
 
+            <Col xs={8}> 
+              <Button sx={{ width: "100%", height: "34px" }}
+                width={1}
+                bg={ColorBoton()}
+                disabled={EnableBoton()}
+                onClick={async () => {
+                  setLoadingSecc(true)
+                    await props.useAcciones.InfoAdd()
+                  setLoadingSecc(false)
+                }}
+              >
+                <Text sx={Estilo.mbtn1}>
+                  Validar
+                  {LoadingSecc ? <Spinner size={17} ml={0} /> : <div/>}
+                </Text>
 
+              </Button>
+            </Col>
 
+          </Row>
 
+        </Container>
 
+        <Box css={{ height: 21 }} />
 
 
 
       </Container>
+
+
+
 
 
 
@@ -360,7 +339,7 @@ const ModuloSimple  = () => {
 
       <Row>
         <Col xs={9} style={{textAlign: "left"}}>
-          <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Datos de tu empresa"}</Text> <Text sx={Estilo.d2s} >(opcional)</Text>
+          <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Datos del Cliente"}</Text> <Text sx={Estilo.d2s} ></Text>
         </Col>
 
       </Row>
@@ -373,34 +352,64 @@ const ModuloSimple  = () => {
 
         <Row style={{marginBottom: "10px"}}>
           <Col xs={3}> <Text sx={Estilo.label1} >Nombre</Text> </Col>
-          <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Titulo", setDetalle)}/> </Col>
+          <Col xs={5}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.ClienteNombre}</Text> </Col>
+
+
         </Row>
 
         <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Sitio Web / Redes</Text> </Col>
-          <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Web", setDetalle)}/> </Col>
+          <Col xs={3}> <Text sx={Estilo.label1} >Teléfono</Text> <Text sx={Estilo.d2s} >(Whatsapp)</Text>  </Col>
+          <Col xs={5}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.ClienteTelefono}</Text> </Col>
         </Row>
-
 
         <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Empleados</Text> </Col>
-          <Col xs={9}> 
-            <Dropbox
-              name="Categoria"
-              isSearchable={false}
-              styles={DropboxFiltro1}
-              value={{value: Detalle.Empleados, label: Detalle.Empleados}}
-              options={props.useContext.Empleados[0]}
-              onChange={async e => { setDetalle({ ...Detalle, "Empleados": e.value }) }} 
-            />
-          </Col>
+          <Col xs={3}> <Text sx={Estilo.label1} >Email</Text> </Col>
+          <Col xs={5}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.ClienteEmail}</Text> </Col>
         </Row>
 
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Saldo</Text> </Col>
+          <Col xs={3}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.Saldo}</Text> </Col>
+
+          <Col xs={3}> <Text sx={Estilo.label1} >Nivel</Text> </Col>
+          <Col xs={2}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.Nivel}</Text> </Col>
+        </Row>
 
       </Container>
 
 
 
+      <Box sx={{ height: 13,  }} />
+
+
+      <Row>
+        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Registro de la visita"}</Text>
+      </Row>
+
+
+      <Container fluid 
+        style={{ width: "100%", bg: "white", borderRadius: "10px", borderStyle: "solid", borderWidth:1, borderColor: "#9999", paddingTop: "10px"}}
+      >
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Folio</Text> </Col>
+          <Col xs={3}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Folio", setDetalle)}/> </Col>
+        </Row>
+
+
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Importe</Text><Text sx={Estilo.d2s} > (del Ticket)</Text>  </Col>
+          <Col xs={3}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Importe", setDetalle)}/> </Col>
+        </Row>
+
+
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Puntos a Abonar</Text> </Col>
+          <Col xs={5}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{AAbonar}</Text> </Col>
+        </Row>
+
+
+
+      </Container>
 
 
       <Box sx={{ height: 13,  }} />
@@ -408,29 +417,8 @@ const ModuloSimple  = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <Col xs={9} style={{textAlign: "left"}}>
-        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Cuéntanos sobre ti"}</Text> <Text sx={Estilo.d2s} >(opcional)</Text>
+        <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Observaciones"}</Text> <Text sx={Estilo.d2s} >(opcional)</Text>
       </Col>
 
 
@@ -441,12 +429,9 @@ const ModuloSimple  = () => {
         style={{ width: "100%", bg: "white", borderRadius: "10px", borderStyle: "solid", borderWidth:1, borderColor: "#9999", paddingTop: "10px"}}
       >
 
-<Col xs={9} style={{textAlign: "left"}}>
-
-<Text sx={{...Estilo.d2s, textAlign: "left"}} >(si tienes alguna pregunta para el experto la puedes escribir aquí)</Text>
-</Col>
-
-
+        <Col xs={9} style={{textAlign: "left"}}>
+          <Text sx={{...Estilo.d2s, textAlign: "left"}} >(si tienes alguna aclaración o comentario sobre la operación)</Text>
+        </Col>
 
 
         <Row style={{marginBottom: "10px"}}>
@@ -465,38 +450,9 @@ const ModuloSimple  = () => {
       <Box css={{ height: 21 }} />
 
 
-      <Container fluid>
-        <Row style={{marginBottom: "10px"}}>
-        
-          <Col xs={3} > 
-            <Button
-                sx={{width: "100%", bg: "transparent"}}
-                {...useChangeBoolean(Aceptado, setAceptado)}
-            >
-             <Checkbox checked={Aceptado} />
 
 
-             
-            </Button>
-          </Col>
-
-          <Col xs={8} style={{textAlign: "left"}}> 
-            <Text pt={"3px"} sx={Estilo.d2s}>Acepto el </Text>
-            <Link sx={Estilo.h3}  href='https://nobis.mx/aviso-de-privacidad' target='_blank'>
-              {" Aviso de Privacidad"}
-            </Link>
-          </Col>
-
-        </Row>
-
-      </Container>
-
-
-      <Box css={{ height: 8 }} />
-
-
-      <Container fluid 
-      >
+      <Container fluid >
         <Row style={{marginBottom: "10px"}}>
         <Col xs={2}/> 
 
@@ -512,7 +468,7 @@ const ModuloSimple  = () => {
               }}
             >
               <Text sx={Estilo.mbtn1}>
-                Registrarme
+                Abonar
                 {LoadingSecc ? <Spinner size={17} ml={0} /> : <div/>}
               </Text>
 
@@ -525,8 +481,7 @@ const ModuloSimple  = () => {
 
       <Box css={{ height: 34 }} />
 
-
-</Container>
+  </Container>
 
 
     )

@@ -54,52 +54,52 @@ let server = "https://www.empresando.com"
 
 
 let MiDetalle = {
-  Empresa: 9,
+  Empresa: 1,
   Id: ["0"],
+
+  Sucursal: [""],
+
+  Enlace: "",
   Codigo: [""],
+
+  Cliente: null,
+  ClienteNombre: "Paco Sanchez M",
+  ClienteTelefono: "4775968559",
+
+  ClienteEmail: "paco.sanchezm@gmail.com",
+
+  Saldo: 210,
+  Nivel: 5,
+
+  Folio: [""],
+  Ref: [""],
+
+  Importe: 0,
+
+  Abonar: null,
+
+
+  Obv: [""],
+
+
+
+
+
   Fecha: [""],
-  Ciudad: "",
 
   // Nombre: "Emilio",
   // Apellido: "test",
   // Telefono: "4772740041",
   // Email: "emiliotest@gmail.com",
 
-  Nombre: "",
-  Apellido: "",
-  Telefono: "",
-  Email: "",
+  // Telefono: "",
+  // Email: "",
 
   TipoEntrega: [""],
   Confirmado: [""],
 
-  Sucursal: [""],
-  Cliente: null,
-  Cuenta: [""],
-  Monto: [""],
-  Obv: [""],
-
-  Cupon: [""],
-
-  // Titulo: "Aprende a Comer",
-  // Web: "aprendeacomer.org",
-
-  Titulo: "",
-  Web: "",
-
-
-  Categoria: "",
-  Estado: "",
-  Empleados: "",
-
-  Referencia1: "",
-  Referencia2: "",
-  Referencia3: "",
 
   Descripcion: "  ",
-
-
-
 
 
 }
@@ -109,84 +109,6 @@ let MiRegistro = {
 }
 
 
-
-const Categorias = [
-  { value: "Accesorios y ropa", label: "Accesorios y ropa" },
-  { value: "Alimentos", label: "Alimentos" },
-  { value: "Arte", label: "Arte" },
-  { value: "Artesanía", label: "Artesanía" },
-  { value: "Bebidas", label: "Bebidas" },
-  { value: "Belleza y salud", label: "Belleza y salud" },
-  { value: "Cine", label: "Cine" },
-  { value: "Cocina", label: "Cocina" },
-  { value: "Decoración", label: "Decoración" },
-  { value: "Desarrollo sostenible", label: "Desarrollo sostenible" },
-  { value: "Diseño de interiores", label: "Diseño de interiores" },
-  { value: "Emprendimiento ecológico", label: "Emprendimiento ecológico" },
-  { value: "Emprendimiento para eventos", label: "Emprendimiento para eventos" },
-  { value: "Entretenimiento", label: "Entretenimiento" },
-  { value: "Joyería", label: "Joyería" },
-  { value: "Libros", label: "Libros" },
-  { value: "Mascotas", label: "Mascotas" },
-  { value: "Negocios", label: "Negocios" },
-  { value: "Productos para bebé", label: "Productos para bebé" },
-  { value: "Productos saludables", label: "Productos saludables" },
-  { value: "Regalos", label: "Regalos" },
-  { value: "Repostería", label: "Repostería" },
-  { value: "Responsabilidad social", label: "Responsabilidad social" },
-  { value: "Tecnología y plataformas", label: "Tecnología y plataformas" },
-  { value: "Otros", label: "Otros" },
-]
-
-
-
-
-
-const Estados = [
-  { value: "Aguascalientes", label: "Aguascalientes" },
-  { value: "Baja California", label: "Baja California" },
-  { value: "Baja California Sur", label: "Baja California Sur" },
-  { value: "Campeche", label: "Campeche" },
-  { value: "Chiapas", label: "Chiapas" },
-  { value: "Chihuahua", label: "Chihuahua" },
-  { value: "Coahuila", label: "Coahuila" },
-  { value: "Ciudad de México", label: "Ciudad de México" },
-  { value: "Colima", label: "Colima" },
-  { value: "Durango", label: "Durango" },
-  { value: "Estado de México", label: "Estado de México" },
-  { value: "Guanajuato", label: "Guanajuato" },
-  { value: "Guerrero", label: "Guerrero" },
-  { value: "Hidalgo", label: "Hidalgo" },
-  { value: "Jalisco", label: "Jalisco" },
-  { value: "Michoacán", label: "Michoacán" },
-  { value: "Morelos", label: "Morelos" },
-  { value: "Nayarit", label: "Nayarit" },
-  { value: "Nuevo León", label: "Nuevo León" },
-  { value: "Oaxaca", label: "Oaxaca" },
-  { value: "Puebla", label: "Puebla" },
-  { value: "Querétaro", label: "Querétaro" },
-  { value: "Quintana Roo", label: "Quintana Roo" },
-  { value: "San Luis Potosí", label: "San Luis Potosí" },
-  { value: "Sinaloa", label: "Sinaloa" },
-  { value: "Sonora", label: "Sonora" },
-  { value: "Tabasco", label: "Tabasco" },
-  { value: "Tamaulipas", label: "Tamaulipas" },
-  { value: "Tlaxcala", label: "Tlaxcala" },
-  { value: "Veracruz", label: "Veracruz" },
-  { value: "Yucatán", label: "Yucatán" },
-  { value: "Zacatecas", label: "Zacatecas" },
-]
-
-
-
-
-const Empleados = [
-  { value: "1 a 10", label: "1 a 10" },
-  { value: "11 a 20", label: "11 a 20" },
-  { value: "21 a 50", label: "21 a 50" },
-  { value: "más de 50", label: "más de 50" },
-
-]
 
 
 
@@ -227,7 +149,7 @@ const useStateUniv = () => {
     },
 
     Images: {
-      Logo1: useState(useContext(createContext({src: "https://nobis.mx/wp-content/uploads/2022/04/Juntos-para-crecer-nobis-06-1024x458.png"}))),
+      Logo1: useState(useContext(createContext({src: "https://smxai.net/sf/sflogo1.jpg"}))),
       Logo2: useState(useContext(createContext({src: "https://smxai.net/sf/sflogo2.jpg"}))),
       Flechad: useState(useContext(createContext({src: "https://smxai.net/sf/cs1/arrowd1.png"}))),
       Flechau: useState(useContext(createContext({src: "https://smxai.net/sf/cs1/arrowu1.png"}))),
@@ -252,9 +174,6 @@ const useStateUniv = () => {
     Registro: useState(useContext(createContext(MiRegistro))),
     Pagina: useState(useContext(createContext({}))),
 
-    Categorias: useState(useContext(createContext(Categorias))),
-    Estados: useState(useContext(createContext(Estados))),
-    Empleados: useState(useContext(createContext(Empleados))),
 
 
     Aceptado: useState(useContext(createContext(false))),
@@ -562,10 +481,10 @@ const Body = props => {
 
           <Helmet>
             <meta charSet="utf-8" />
-            <title>Descubre Nobi</title>
+            <title>Enlace Gourmet</title>
             {/* <link rel="canonical" href="http://mysite.com/example" /> */}
-            <meta property="og:title" content="Conoce Nobi y descubre cómo podemos ayudarte" />
-            <meta property="og:description" content="¿Te gustaría recibir la mejor asesoría?" />
+            <meta property="og:title" content="Visitas EnlaceGourmet" />
+            <meta property="og:description" content="Abono de puntos de enlace gourmet" />
             <meta property="og:image" content="https://nobis.mx/wp-content/uploads/2022/04/Juntos-para-crecer-nobis-06-1024x458.png" />
           </Helmet>
 
@@ -644,7 +563,7 @@ const Body = props => {
           <Flex>
             <Box sx={{ width: "100%" }}>
               <Text sx={Estilo.h2}>
-                2022 nobis.mx
+                2022 enlacegourmet
               </Text>
             </Box>
           </Flex>

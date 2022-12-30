@@ -61,15 +61,15 @@ const Body = props => {
 try {
 
   return (
-    <Grid bg="#0D111C" sx={{justifyContent: 'center', width: "100%"}} >
+    <Grid bg="white" sx={{justifyContent: 'center', width: "100%"}} >
 
-      <Flex bg="#0D111C" sx={{width: "100%" }}>
+      <Flex bg="white" sx={{width: "100%" }}>
 
         <Box sx={{ height: "92px"}} >
 
         <Link sx={Estilo.menu1}
           // to={"/"}
-          href={"https://www.nobis.mx"}
+          href={"https://www.enlacegourmet.com"}
 
         >
           <Image  src={Images.Logo1[0].src} sx={{ height: "100%"}}/>
