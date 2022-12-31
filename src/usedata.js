@@ -2,8 +2,8 @@ import axios from "axios"
 
 // ------------------------------------------------------------
 
- // let graphqlserver = "https://8t8jt.sse.codesandbox.io/gql"
-  let graphqlserver = "https://smxai.net/graphqleai2"
+let graphqlserver = "https://djkx1w.sse.codesandbox.io/gql"
+// let graphqlserver = "https://smxai.net/graphqleai2"
 
 
 //let graphqlserverb = "https://smxblogs.com/aprendeacomer/graphql"
@@ -179,6 +179,160 @@ let usedata = function(StateContextM) {
 
           }
         }, // ClientesProf
+
+
+        Enlaces: function() {
+          return {
+            get: async function(e) {
+                
+              var axdata = await axios({
+                url: graphqlserver,
+                method: "post",
+                data: {
+                  query: `
+                  query Enlaces($Query: EGEnlaceInput) {
+                    EGEnlaces {
+                      Consultas {
+                       Amplia(Query: $Query) {
+                          Id
+                          Sucursal
+                          Cliente
+                          Tipo
+                          Fecha
+                          Activacion
+                          Status
+                          Num
+                          Codigo
+                          Expira
+                          Verificacion
+                          Obv
+                              
+                          ClientesNombre
+                          ClientesEmail
+                          ClientesTelefono
+                          ClientesIdInterno
+                        }
+                      }
+                    }
+                  }
+                  `,
+                  variables: {
+                    Query: {
+                      Num: e.Enlace,
+                      Codigo: e.Codigo
+                    }
+                  }
+                }
+              });
+
+              let axdataRes = axdata.data.data.EGEnlaces.Consultas.Amplia;
+              if (axdataRes[0]) { return axdataRes[0] } else return 0
+            },
+
+          }
+        }, // Enlaces
+
+
+
+        Movimientos: function() {
+          return {
+            get: async function(EnlaceId) {
+                
+              var axdata = await axios({
+                url: graphqlserver,
+                method: "post",
+                data: {
+                  query: `
+                    query Movimientos($Query: EGEnlaceMovimientoInput) {
+                      EGEnlacesMovimientos {
+                        Consultas {
+                        Base(Query: $Query) {
+                            
+                            Id
+                            Sucursal
+                            Operador
+                            Enlace
+                            Status
+                            Concepto
+                            Folio
+                            Ref
+                            Importe
+                            Puntos
+                            Notificado
+                            Obv
+                          }
+                        }
+                      }
+                    }
+                  `,
+                  variables: {
+                    Query: {
+                      Enlace: EnlaceId,
+                    }
+                  }
+                }
+              });
+
+              let axdataRes = axdata.data.data.EGEnlacesMovimientos.Consultas.Base;
+              if (axdataRes) { return axdataRes } else return 0
+            },
+
+
+
+            add: async function(e, AAbonar) {
+                
+              var axdata = await axios({
+                url: graphqlserver,
+                method: "post",
+                data: {
+                  query: `
+                    mutation Insert($Query: EGEnlaceMovimientoInput) {
+                      EGEnlacesMovimientosM {
+                        Registro {
+                          Insert(Query: $Query)
+                        }
+                      }
+                    }
+                  `,
+                  variables: {
+                    Query: {
+
+                      "Sucursal": 6,
+                      "Operador": 7,
+
+
+                      "Enlace": e.EnlaceId,
+                      "Tipo": "Abono",
+                      "Concepto": "Abono por consumo",
+                      "Folio": String(e.Folio),
+                      "Ref": String(e.Ref),
+                      "Importe": Number(e.Importe),
+                      "Puntos": AAbonar,
+                      "Obv": String(e.Obv)
+
+
+                    }
+                  }
+                }
+              });
+
+              let axdataRes = axdata.data.data.EGEnlacesMovimientosM.Registro.Insert
+              if (axdataRes) { return axdataRes } else return 0
+            },
+
+
+
+          }
+        }, // Enlaces
+
+
+
+
+
+
+
+
+
 
       }
 

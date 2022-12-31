@@ -2,9 +2,9 @@ import axios from "axios"
 
 // ------------------------------------------------------------
 
-// let graphqlserver = "https://8t8jt.sse.codesandbox.io/gql"
-let graphqlserver = "https://smxai.net/graphqleai2"
-let graphqlserverb = "https://smxblogs.com/aprendeacomer/graphql"
+   let graphqlserver = "https://djkx1w.sse.codesandbox.io/"
+// let graphqlserver = "https://smxai.net/graphqleai2"
+// let graphqlserverb = "https://smxblogs.com/aprendeacomer/graphql"
 
 
 let usedata = function(StateContextM) {
@@ -20,29 +20,42 @@ let usedata = function(StateContextM) {
             method: "post",
             data: {
               query: `
-                query getClientes($Query: ClienteInput) {
-                  Clientes {
-                    Consultas {
-                      Query(Query: $Query) {
-                        Id
-                        Empresa
-                        Telefono
-                        Nombre
-                      }
+              query Enlaces($Query: EGEnlaceInput) {
+                EGEnlaces {
+                  Consultas {
+                   Amplia(Query: $Query) {
+                      Id
+                      Sucursal
+                      Cliente
+                      Tipo
+                      Fecha
+                      Activacion
+                      Status
+                      Num
+                      Codigo
+                      Expira
+                      Verificacion
+                      Obv
+                          
+                      ClientesNombre
+                      ClientesEmail
+                      ClientesTelefono
+                      ClientesIdInterno
                     }
                   }
                 }
+              }
                `,
               variables: {
                 Query: {
-                  Telefono: e.Telefono,
-                  Empresa: e.Empresa
+                  Num: e.Enlace,
+                  Codigo: e.Codigo
                 }
               }
             }
           });
     
-          let axdataRes = axdata.data.data.Clientes.Consultas.Query;
+          let axdataRes = axdata.data.data.EGEnlaces.Consultas.Amplia;
 
           if (axdataRes) {return axdataRes} else {return 0}
         },
@@ -125,18 +138,123 @@ let usedata = function(StateContextM) {
           if (axdataRes>0) {return axdataRes} else {return 0}
         },
 
+
+
+        getEnlace: async function(e) {
+         
+          var axdata = await axios({
+            url: graphqlserver,
+            method: "post",
+            data: {
+              query: `
+              query Enlaces($Query: EGEnlaceInput) {
+                EGEnlaces {
+                  Consultas {
+                   Amplia(Query: $Query) {
+                      Id
+                      Sucursal
+                      Cliente
+                      Tipo
+                      Fecha
+                      Activacion
+                      Status
+                      Num
+                      Codigo
+                      Expira
+                      Verificacion
+                      Obv
+                          
+                      ClientesNombre
+                      ClientesEmail
+                      ClientesTelefono
+                      ClientesIdInterno
+                    }
+                  }
+                }
+              }
+               `,
+              variables: {
+                Query: {
+                  Num: e.Enlace,
+                  Codigo: e.Codigo
+                }
+              }
+            }
+          });
+    
+          let axdataRes = axdata.data.data.EGEnlaces.Consultas.Amplia;
+
+          if (axdataRes) {return axdataRes} else {return 0}
+        }
+
+
+
+
+
+
+
+
       }
     },
 
 
+    // Enlaces: function() {
+    //   return {
+    //     get: async function(e) {
+         
+    //       var axdata = await axios({
+    //         url: graphqlserver,
+    //         method: "post",
+    //         data: {
+    //           query: `
+    //           query Enlaces($Query: EGEnlaceInput) {
+    //             EGEnlaces {
+    //               Consultas {
+    //                Amplia(Query: $Query) {
+    //                   Id
+    //                   Sucursal
+    //                   Cliente
+    //                   Tipo
+    //                   Fecha
+    //                   Activacion
+    //                   Status
+    //                   Num
+    //                   Codigo
+    //                   Expira
+    //                   Verificacion
+    //                   Obv
+                          
+    //                   ClientesNombre
+    //                   ClientesEmail
+    //                   ClientesTelefono
+    //                   ClientesIdInterno
+    //                 }
+    //               }
+    //             }
+    //           }
+    //            `,
+    //           variables: {
+    //             Query: {
+    //               Num: e.Enlace,
+    //               Codigo: e.Codigo
+    //             }
+    //           }
+    //         }
+    //       });
+    
+    //       let axdataRes = axdata.data.data.EGEnlaces.Consultas.Amplia;
+
+    //       if (axdataRes) {return axdataRes} else {return 0}
+    //     },
+      
+
+    //   }
+
+    // },
 
 
-
-    }
-
+    
   }
-  
+}
   
   export default usedata
-  
-  

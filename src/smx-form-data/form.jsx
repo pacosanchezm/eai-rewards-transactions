@@ -54,8 +54,7 @@ const DropboxFiltro1= {
 
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
-// ---------------------------------------------------------------------
-// ---------------------------------------------------------------------
+
 
 
 
@@ -67,6 +66,7 @@ const Body = props => {
   const [LoadingSecc, setLoadingSecc] = props.useContextLocal.Loading.DataMain
 
   const [Registro, setRegistro] = props.useContext.Registro
+  const [Registros, setRegistros] = props.useContext.Registros
 
   const Images = props.useContext.Images
 
@@ -78,46 +78,84 @@ const Body = props => {
 
   let AAbonar = ((Detalle.Nivel / 100) * Detalle.Importe)
 
+
+
+
+  const MiSaldo = () => Registros.reduce((a, b) => a + Number((b.Puntos)), 0)
+
+
+
+
 // ----------------------------------
 
 useEffect(() => {
  // props.useAcciones.getPage({id:props.pageid})
 }, [])
 
+const ColorBotonV = function(props) {
+  if(Detalle.Enlace && Detalle.Codigo){
+    return "#B7CE3F"
+
+  }
+}
+
+const EnableBotonV = function(props) {
+
+  if(Detalle.Enlace && Detalle.Codigo){
+
+    return false
+
+  } 
+
+  return true
+}
+
+
+
+
+
+
+
 
 
 
 const ColorBoton = function(props) {
-  if(Detalle.Nombre && Detalle.Telefono && Detalle.Email){
+  if(Detalle.Folio && Detalle.Importe){
 
-    if(Detalle.Email.lastIndexOf('@')>0){
-      if(Detalle.Email.lastIndexOf('.')>0){
-        if(Aceptado){
-          return "#B7CE3F"
-        }
-      } 
-    }    
+    // if(Detalle.Email.lastIndexOf('@')>0){
+    //   if(Detalle.Email.lastIndexOf('.')>0){
+    //     if(Aceptado){
+    //       return "#B7CE3F"
+    //     }
+    //   } 
+    // }    
+
+    return "#B7CE3F"
+
   }
-};
+}
 
 const EnableBoton = function(props) {
 
   // if(LoadingSecc) {return false}
 
-  if(Detalle.Nombre && Detalle.Telefono && Detalle.Email){
-    if(Detalle.Email.lastIndexOf('@')>0){
-      if(Detalle.Email.lastIndexOf('.')>0){
-          if(Aceptado){
-            return false
-          }
+  if(Detalle.Enlace && Detalle.Codigo && Detalle.Importe){
+    // if(Detalle.Email.lastIndexOf('@')>0){
+    //   if(Detalle.Email.lastIndexOf('.')>0){
+    //       if(Aceptado){
+    //         return false
+    //       }
 
-      } 
-    }      
+    //   } 
+    // }      
+
+    return false
+
   } 
 
   return true
   
-};
+}
 
 
 const ModuloSimple  = () => {
@@ -150,6 +188,37 @@ const ModuloSimple  = () => {
             <Text sx={Estilo.msecc1}>{""}</Text>
 
           </Row>
+
+
+
+          <Box css={{ height: 21 }} />
+
+
+          <Container fluid >
+            <Row style={{marginBottom: "10px"}}>
+            <Col xs={2}/> 
+
+              <Col xs={8}> 
+                <Button sx={{ width: "100%", height: "34px" }}
+                  width={1}
+                  bg={"gray"}
+                  // disabled={EnableBoton()}
+                  onClick={async () => {
+                    location.reload()
+                  }}
+                >
+                  <Text sx={Estilo.mbtn1}>
+                    Registrar Otra Visita
+                    {LoadingSecc ? <Spinner size={17} ml={0} /> : <div/>}
+                  </Text>
+
+                </Button>
+              </Col>
+
+            </Row>
+
+          </Container>
+
 
          </Box>
        </Flex>
@@ -218,10 +287,6 @@ const ModuloSimple  = () => {
           <Col xs={3}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Enlace", setDetalle)}/> </Col>
         </Row>
 
-        {/* <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Apellidos</Text> </Col>
-          <Col xs={9}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Apellido", setDetalle)}/> </Col>
-        </Row> */}
 
         <Row style={{marginBottom: "10px"}}>
           <Col xs={3}> <Text sx={Estilo.label1} >Código</Text> <Text sx={Estilo.d2s} >(CVC)</Text>  </Col>
@@ -239,11 +304,11 @@ const ModuloSimple  = () => {
             <Col xs={8}> 
               <Button sx={{ width: "100%", height: "34px" }}
                 width={1}
-                bg={ColorBoton()}
-                disabled={EnableBoton()}
+                bg={ColorBotonV()}
+                disabled={EnableBotonV()}
                 onClick={async () => {
                   setLoadingSecc(true)
-                    await props.useAcciones.InfoAdd()
+                    await props.useAcciones.getEnlace()
                   setLoadingSecc(false)
                 }}
               >
@@ -266,71 +331,6 @@ const ModuloSimple  = () => {
       </Container>
 
 
-
-
-
-
-{/* 
-
-      <Box sx={{ height: 13,  }} />
-
-      <Row>
-        <Col xs={9} style={{textAlign: "left"}}>
-          <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Etapa de tu emprendimiento"}</Text> <Text sx={Estilo.d2s} >(opcional)</Text>
-        </Col>
-      </Row>
-
-
-      <Container fluid 
-        style={{ width: "100%", bg: "white", borderRadius: "10px", borderStyle: "solid", borderWidth:1, borderColor: "#9999", paddingTop: "10px"}}
-      >
-
-        <Row style={{marginBottom: "10px"}}>
-          <Button
-            sx={{width: "100%", bg: "transparent"}}
-            {...useChangeBooleanArray(Detalle, "Referencia1", setDetalle)}
-          >
-            <Row>
-                <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia1}/> </Col>
-               <Col xs={8} style={{textAlign: "left"}}> <Text sx={Estilo.d2s} >Estoy desarrollando la idea de negocio</Text> </Col>
-            </Row>
-          </Button>
-        </Row>
-
-
-
-        <Row style={{marginBottom: "10px"}}>
-          <Button
-            sx={{width: "100%", bg: "transparent"}}
-            {...useChangeBooleanArray(Detalle, "Referencia3", setDetalle)}
-          >
-            <Row>
-            <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia3}/> </Col>
-              <Col xs={8} style={{textAlign: "left"}} > <Text sx={Estilo.d2s}>En operación (ya vendo productos y/o servicios)</Text> </Col>
-            </Row>
-          </Button>
-        </Row>
-
-        <Row style={{marginBottom: "10px"}}>
-          <Button
-            sx={{width: "100%", bg: "transparent"}}
-            {...useChangeBooleanArray(Detalle, "Referencia4", setDetalle)}
-          >
-            <Row>
-            <Col xs={2} style={{paddingLeft: "50px"}}> <Checkbox checked={Detalle.Referencia4}/> </Col>
-              <Col xs={8} style={{textAlign: "left"}}> <Text sx={Estilo.d2s}>No tengo una idea concreta</Text> </Col>
-            </Row>
-          </Button>
-        </Row>
-
-        <Row style={{marginBottom: "10px"}}>
-          <Row>
-            <Col xs={3} style={{textAlign: "left", paddingLeft: "50px"}}> <Text sx={Estilo.d2s}>Otro</Text> </Col>
-            <Col xs={8} style={{textAlign: "left"}}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Referencia5", setDetalle)}/> </Col>
-          </Row>
-        </Row>
-
-      </Container> */}
 
       <Box sx={{ height: 13,  }} />
 
@@ -369,10 +369,10 @@ const ModuloSimple  = () => {
 
         <Row style={{marginBottom: "10px"}}>
           <Col xs={3}> <Text sx={Estilo.label1} >Saldo</Text> </Col>
-          <Col xs={3}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.Saldo}</Text> </Col>
+          <Col xs={3}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{MiSaldo()}</Text> </Col>
 
           <Col xs={3}> <Text sx={Estilo.label1} >Nivel</Text> </Col>
-          <Col xs={2}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.Nivel}</Text> </Col>
+          <Col xs={2}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.Nivel} %</Text> </Col>
         </Row>
 
       </Container>
@@ -404,7 +404,7 @@ const ModuloSimple  = () => {
 
         <Row style={{marginBottom: "10px"}}>
           <Col xs={3}> <Text sx={Estilo.label1} >Puntos a Abonar</Text> </Col>
-          <Col xs={5}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{AAbonar}</Text> </Col>
+          <Col xs={5}> <Text sx={{...Estilo.label2, textAlign: "left"}} >{AAbonar}</Text> </Col>
         </Row>
 
 
@@ -440,7 +440,7 @@ const ModuloSimple  = () => {
             <Textarea
               // sx={Estilo.input1}
               {...useChangeArray(Detalle, "Descripcion", setDetalle)}
-              rows={5}
+              rows={3}
             />          
           </Col>
         </Row>

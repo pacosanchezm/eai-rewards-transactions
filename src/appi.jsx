@@ -50,7 +50,7 @@ const StateContext = createContext();
 
 // -------------------------------------- Variables
 
-let server = "https://www.empresando.com"
+let server = "https://sushifactory.app"
 
 
 let MiDetalle = {
@@ -59,17 +59,19 @@ let MiDetalle = {
 
   Sucursal: [""],
 
-  Enlace: "",
-  Codigo: [""],
+
+  EnlaceId: null,
+  Enlace: null,
+  Codigo: null,
 
   Cliente: null,
-  ClienteNombre: "Paco Sanchez M",
-  ClienteTelefono: "4775968559",
+  ClienteNombre: "",
+  ClienteTelefono: "",
 
-  ClienteEmail: "paco.sanchezm@gmail.com",
+  ClienteEmail: "",
 
-  Saldo: 210,
-  Nivel: 5,
+  Saldo: null,
+  Nivel: null,
 
   Folio: [""],
   Ref: [""],
@@ -81,19 +83,8 @@ let MiDetalle = {
 
   Obv: [""],
 
-
-
-
-
   Fecha: [""],
 
-  // Nombre: "Emilio",
-  // Apellido: "test",
-  // Telefono: "4772740041",
-  // Email: "emiliotest@gmail.com",
-
-  // Telefono: "",
-  // Email: "",
 
   TipoEntrega: [""],
   Confirmado: [""],
@@ -154,9 +145,9 @@ const useStateUniv = () => {
       Flechad: useState(useContext(createContext({src: "https://smxai.net/sf/cs1/arrowd1.png"}))),
       Flechau: useState(useContext(createContext({src: "https://smxai.net/sf/cs1/arrowu1.png"}))),
       Ayuda: useState(useContext(createContext({src: "https://smxai.net/sf/cs1/ayuda.jpg"}))),
-      Icon1: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
-      Iconfb: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
-      Iconig: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
+      // Icon1: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
+      // Iconfb: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
+      // Iconig: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
     },
 
     Loading: {
@@ -183,6 +174,16 @@ const useStateUniv = () => {
 
     Detalle: useState(useContext(createContext(MiDetalle))),
     Editado: useState(useContext(createContext(false))),
+
+
+
+   // AAbonar: useState(useContext(createContext(MiAAbonar))),
+
+
+
+
+
+
 
   };
 };
@@ -260,16 +261,16 @@ let useAcciones = function(StateContext) {
 
   return {
 
-  //   getUser : async (props) => {
-  //    try {
-  //      const res = await axios.get(server + '/logindata')
-  //      setUserId(res.data.miid)
-  //      setUserName(res.data.miuser)
-  //      setSucursal(res.data.misucursal)
+    getUser : async (props) => {
+     try {
+       const res = await axios.get(server + '/logindata')
+       setUserId(res.data.miid)
+       setUserName(res.data.miuser)
+       setSucursal(res.data.misucursal)
 
-  //      // Todo: Como jalar el req y el t?
-  //    } catch (e) { console.error(e) }
-  //  },
+       // Todo: Como jalar el req y el t?
+     } catch (e) { console.error(e) }
+   },
 
     Loader : async function (props) {
 
@@ -401,15 +402,12 @@ let useAcciones = function(StateContext) {
 
     InfoAdd : async function (e) {
       try{
+        let AAbonar = ((Detalle.Nivel / 100) * Detalle.Importe)
 
-        let MiCliente = await useData.Clientes().pull4(Detalle) 
-        console.log({MiCliente: MiCliente})
-        await setDetalle({ ...Detalle, "Cliente": MiCliente.Id })
 
-        let MiClienteProf = await useData.ClientesProf().add(Detalle, MiCliente.Id) 
-        console.log({MiClienteProf: MiClienteProf})
-        if (MiClienteProf>1) {setRegistrado(true)}
-
+        let MiRegistro = await useData.Movimientos().add(Detalle, AAbonar) 
+        console.log({MiRegistro: MiRegistro})
+        if (MiRegistro>1) {setRegistrado(true)}
 
         return 1
 
@@ -419,6 +417,41 @@ let useAcciones = function(StateContext) {
     },
 
 
+
+    getEnlace : async function (e) {
+      try{
+
+        // let MiEnlace = await useData.Enlaces().get(Detalle) 
+         let MiEnlace = await useData.Enlaces().get(Detalle) 
+
+         await setDetalle({ ...Detalle,
+
+          "EnlaceId": MiEnlace.Id,
+
+
+           "ClienteNombre": MiEnlace.ClientesNombre,
+           "ClienteTelefono": MiEnlace.ClientesTelefono,
+           "ClienteEmail": MiEnlace.ClientesEmail,
+
+           "Nivel": 5,
+
+          })
+
+
+        console.log({MiEnlace: MiEnlace})
+
+
+        let MiMovimientos = await useData.Movimientos().get(MiEnlace.Id) 
+         await setRegistros(MiMovimientos)
+
+         console.log({MiMovimientos: MiMovimientos})
+
+        return 1
+
+      } catch (e) { console.error(e)
+        return 0
+      }
+    },
 
 
 
@@ -485,7 +518,7 @@ const Body = props => {
             {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             <meta property="og:title" content="Visitas EnlaceGourmet" />
             <meta property="og:description" content="Abono de puntos de enlace gourmet" />
-            <meta property="og:image" content="https://nobis.mx/wp-content/uploads/2022/04/Juntos-para-crecer-nobis-06-1024x458.png" />
+            <meta property="og:image" content="https://smxai.net/sf/sflogo1.jpg" />
           </Helmet>
 
 

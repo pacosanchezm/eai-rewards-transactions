@@ -448,7 +448,7 @@ export default {
       fontSize: 4,
       fontFamily: "body",
       fontWeight: "normal",
-      color: "#152f6a",
+      color: "#686969",
       mt: 4,
       mb: 2,
       ml: 2,
