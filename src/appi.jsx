@@ -61,8 +61,8 @@ let MiDetalle = {
 
 
   EnlaceId: null,
-  Enlace: null,
-  Codigo: null,
+  Enlace: "",
+  Codigo: "",
 
   Cliente: null,
   ClienteNombre: "",
@@ -70,8 +70,8 @@ let MiDetalle = {
 
   ClienteEmail: "",
 
-  Saldo: null,
-  Nivel: null,
+  Saldo: "",
+  Nivel: "",
 
   Folio: [""],
   Ref: [""],
