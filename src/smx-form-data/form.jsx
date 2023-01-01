@@ -76,7 +76,7 @@ const Body = props => {
 
   const {useChangeArray, useChangeBooleanArray, useChangeBoolean} = props.useAcciones
 
-  let AAbonar = ((Detalle.Nivel / 100) * Detalle.Importe)
+  let AAbonar = Math.floor((Detalle.Nivel / 100) * Detalle.Importe)
 
 
 
@@ -120,7 +120,7 @@ const EnableBotonV = function(props) {
 
 
 const ColorBoton = function(props) {
-  if(Detalle.Folio && Detalle.Importe){
+  if(Detalle.EnlaceId && Detalle.Folio && Detalle.Importe){
 
     // if(Detalle.Email.lastIndexOf('@')>0){
     //   if(Detalle.Email.lastIndexOf('.')>0){
@@ -139,7 +139,7 @@ const EnableBoton = function(props) {
 
   // if(LoadingSecc) {return false}
 
-  if(Detalle.Enlace && Detalle.Codigo && Detalle.Importe){
+  if(Detalle.EnlaceId && Detalle.Folio && Detalle.Importe){
     // if(Detalle.Email.lastIndexOf('@')>0){
     //   if(Detalle.Email.lastIndexOf('.')>0){
     //       if(Aceptado){
@@ -439,7 +439,7 @@ const ModuloSimple  = () => {
           <Col xs={12}> 
             <Textarea
               // sx={Estilo.input1}
-              {...useChangeArray(Detalle, "Descripcion", setDetalle)}
+              {...useChangeArray(Detalle, "Obv", setDetalle)}
               rows={3}
             />          
           </Col>

@@ -145,9 +145,9 @@ const useStateUniv = () => {
       Flechad: useState(useContext(createContext({src: "https://smxai.net/sf/cs1/arrowd1.png"}))),
       Flechau: useState(useContext(createContext({src: "https://smxai.net/sf/cs1/arrowu1.png"}))),
       Ayuda: useState(useContext(createContext({src: "https://smxai.net/sf/cs1/ayuda.jpg"}))),
-      // Icon1: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
-      // Iconfb: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
-      // Iconig: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
+      Icon1: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
+      Iconfb: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
+      Iconig: useState(useContext(createContext({src: "https://smxblogs.com/empresando/wp-content/empresando/avatar.png"}))),
     },
 
     Loading: {
@@ -402,7 +402,7 @@ let useAcciones = function(StateContext) {
 
     InfoAdd : async function (e) {
       try{
-        let AAbonar = ((Detalle.Nivel / 100) * Detalle.Importe)
+        let AAbonar = Math.floor((Detalle.Nivel / 100) * Detalle.Importe)
 
 
         let MiRegistro = await useData.Movimientos().add(Detalle, AAbonar) 

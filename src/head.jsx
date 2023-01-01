@@ -72,7 +72,7 @@ try {
           href={"https://www.enlacegourmet.com"}
 
         >
-          <Image  src={Images.Logo1[0].src} sx={{ height: "100%"}}/>
+          <Image  src={Images.Logo1[0].src} sx={{ height: "100%", width: "100%"}}/>
 
           </Link>
 
@@ -83,7 +83,7 @@ try {
         <Box sx={{ width: "100px" }}/>
 
 
-        {/* <Flex sx={{ height: "34px", width: "100%" }}>
+        <Flex sx={{ height: "34px", width: "100%" }}>
 
         <Box sx={{ width: "21px", height: "21px" }}>
           <Image src={Images.Icon1[0].src} />
@@ -98,7 +98,7 @@ try {
                 </Box>
               </Flex>
           }
-        </Flex> */}
+        </Flex>
 
       </Flex>
 
