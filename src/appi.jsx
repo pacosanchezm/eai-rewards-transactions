@@ -257,7 +257,9 @@ let useAcciones = function(StateContext) {
   const [Detalle, setDetalle] = useContext(StateContext).Detalle
 
 
-
+  const [UserId, setUserId] = useContext(StateContext).User.Id
+  const [UserName, setUserName] = useContext(StateContext).User.Name
+  const [Sucursal, setSucursal] = useContext(StateContext).User.Sucursal
 
   return {
 
@@ -272,9 +274,20 @@ let useAcciones = function(StateContext) {
      } catch (e) { console.error(e) }
    },
 
+
+
+
+
+
+
+
+
+
+
+
     Loader : async function (props) {
 
-      // this.getUser()
+      this.getUser()
       setLoadingDataMain(true)
       setLoadingDataMain(false)
 
@@ -405,7 +418,7 @@ let useAcciones = function(StateContext) {
         let AAbonar = Math.floor((Detalle.Nivel / 100) * Detalle.Importe)
 
 
-        let MiRegistro = await useData.Movimientos().add(Detalle, AAbonar) 
+        let MiRegistro = await useData.Movimientos().add(Detalle, AAbonar, UserId, Sucursal) 
         console.log({MiRegistro: MiRegistro})
         if (MiRegistro>1) {setRegistrado(true)}
 

@@ -279,7 +279,7 @@ let usedata = function(StateContextM) {
 
 
 
-            add: async function(e, AAbonar) {
+            add: async function(e, AAbonar, UserId, Sucursal) {
                 
               var axdata = await axios({
                 url: graphqlserver,
@@ -297,8 +297,8 @@ let usedata = function(StateContextM) {
                   variables: {
                     Query: {
 
-                      "Sucursal": 6,
-                      "Operador": 7,
+                      "Sucursal": Sucursal,
+                      "Operador": UserId,
 
 
                       "Enlace": e.EnlaceId,
