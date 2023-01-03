@@ -158,6 +158,57 @@ const EnableBoton = function(props) {
 }
 
 
+
+
+const ModuloLog  = () => {
+  // console.log({Images})
+   return (
+     <div>
+       <Flex sx={{ width: "100%" }}>
+         <Box
+           //bg="primary"
+           sx={{
+             fontWeight: "normal",
+             fontSize: 1,
+             color: "text",
+             fontFamily: "body",
+             width: "100%"
+           }}
+         >
+ 
+
+          <Flex sx={{ width: "100%" }}>
+              <Row>
+                <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Por favor cierra esta pestaña e inicia sesión"}</Text>
+              </Row>
+          </Flex>
+
+          <Box css={{ height: 21 }} />
+
+          <Row>
+            <Text sx={Estilo.msecc2}>{"Enlace Gourmet"}</Text>
+            <Text sx={Estilo.msecc1}>{""}</Text>
+
+          </Row>
+
+
+
+          <Box css={{ height: 21 }} />
+
+
+         </Box>
+       </Flex>
+     </div>
+   )
+ }
+ 
+ // ----------------------------------
+
+
+
+
+
+
 const ModuloSimple  = () => {
   // console.log({Images})
    return (
@@ -499,6 +550,8 @@ const ModuloSimple  = () => {
         <div>
           {(props.CompStatus.form()===1) ? ModuloEdit() : <div/>}
           {(props.CompStatus.form()===2) ? ModuloSimple() : <div/>}
+          {(props.CompStatus.form()===3) ? ModuloLog() : <div/>}
+
 
           </div>
       }

@@ -210,6 +210,7 @@ let useStatus = function(StateContextM) {
 
   const [ExtendPage, setExtendPage] = useContext(StateContext).Extend.Page
 
+  const [UserId, setUserId] = useContext(StateContext).User.Id;
 
 
   return {
@@ -227,6 +228,7 @@ let useStatus = function(StateContextM) {
 
       if (ExtendFormData) {
         if (Registrado){return 2}
+        if (UserId==null) {return 3}
         return 1
       }
 
@@ -453,9 +455,13 @@ let useAcciones = function(StateContext) {
 
         console.log({MiEnlace: MiEnlace})
 
+          if (MiEnlace.Id) {
 
-        let MiMovimientos = await useData.Movimientos().get(MiEnlace.Id) 
-         await setRegistros(MiMovimientos)
+            let MiMovimientos = await useData.Movimientos().get(MiEnlace.Id) 
+            await setRegistros(MiMovimientos)
+
+          } else {setRegistros([])}
+
 
          console.log({MiMovimientos: MiMovimientos})
 
