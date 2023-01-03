@@ -229,6 +229,7 @@ let useStatus = function(StateContextM) {
       if (ExtendFormData) {
         if (Registrado){return 2}
         if (UserId==null) {return 3}
+        if (UserId===0) {return 3}
         return 1
       }
 
