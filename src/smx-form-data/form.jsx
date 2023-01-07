@@ -82,8 +82,11 @@ const Body = props => {
       case 1: return 6
       case 2: return 8
       case 3: return 10
-      
     }
+
+    return 10
+
+
   }
 
 
@@ -521,7 +524,7 @@ const ModuloSimple  = () => {
               disabled={EnableBoton()}
               onClick={async () => {
                 setLoadingSecc(true)
-                  await props.useAcciones.InfoAdd()
+                  await props.useAcciones.InfoAdd(AAbonar)
                 setLoadingSecc(false)
               }}
             >

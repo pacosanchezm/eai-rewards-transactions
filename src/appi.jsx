@@ -416,9 +416,9 @@ let useAcciones = function(StateContext) {
 
 
 
-    InfoAdd : async function (e) {
+    InfoAdd : async function (AAbonar) {
       try{
-        let AAbonar = Math.floor((Detalle.Nivel / 100) * Detalle.Importe)
+        //let AAbonar = Math.floor((Detalle.Nivel / 100) * Detalle.Importe)
 
 
         let MiRegistro = await useData.Movimientos().add(Detalle, AAbonar, UserId, Sucursal) 
