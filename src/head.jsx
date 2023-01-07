@@ -65,14 +65,15 @@ try {
 
       <Flex bg="white" sx={{width: "100%" }}>
 
-        <Box sx={{ height: "92px"}} >
+        <Box sx={{ height: "55px"}} >
 
         <Link sx={Estilo.menu1}
           // to={"/"}
           href={"https://www.enlacegourmet.com"}
 
         >
-          <Image  src={Images.Logo1[0].src} sx={{ height: "100%", width: "100%"}}/>
+          {/* <Image  src={Images.Logo1[0].src} sx={{ height: "100%", width: "100%"}}/> */}
+          <Image  src={Images.Logo1[0].src}/>
 
           </Link>
 
@@ -83,7 +84,7 @@ try {
         <Box sx={{ width: "100px" }}/>
 
 
-        <Flex sx={{ height: "34px", width: "100%" }}>
+        <Flex sx={{ height: "21px", width: "100%" }}>
 
         <Box sx={{ width: "21px", height: "21px" }}>
           <Image src={Images.Icon1[0].src} />

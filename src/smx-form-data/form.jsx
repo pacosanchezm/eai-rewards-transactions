@@ -76,14 +76,21 @@ const Body = props => {
 
   const {useChangeArray, useChangeBooleanArray, useChangeBoolean} = props.useAcciones
 
-  let AAbonar = Math.floor((Detalle.Nivel / 100) * Detalle.Importe)
+  const MiNivel = () => {
+    switch (Registros.length) {
+      case 0: return 5
+      case 1: return 6
+      case 2: return 8
+      case 3: return 10
+      
+    }
+  }
 
 
+  let AAbonar = Math.floor((MiNivel() / 100) * Detalle.Importe)
 
 
   const MiSaldo = () => Registros.reduce((a, b) => a + Number((b.Puntos)), 0)
-
-
 
 
 // ----------------------------------
@@ -423,7 +430,7 @@ const ModuloSimple  = () => {
           <Col xs={3}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{MiSaldo()}</Text> </Col>
 
           <Col xs={3}> <Text sx={Estilo.label1} >Nivel</Text> </Col>
-          <Col xs={2}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.Nivel} %</Text> </Col>
+          <Col xs={2}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{MiNivel()} %</Text> </Col>
         </Row>
 
       </Container>
