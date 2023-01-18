@@ -422,8 +422,14 @@ let useAcciones = function(StateContext) {
 
 
         let MiRegistro = await useData.Movimientos().add(Detalle, AAbonar, UserId, Sucursal) 
-        console.log({MiRegistro: MiRegistro})
-        if (MiRegistro>1) {setRegistrado(true)}
+       // console.log({MiRegistro: MiRegistro})
+        if (MiRegistro>1) {
+
+          await setDetalle({ ...Detalle, "Id": MiRegistro })
+
+          setRegistrado(true)
+        
+        }
 
         return 1
 
